@@ -1,0 +1,5 @@
+package com.example.ReactDilrb.entities;
+
+public class Post {
+
+}

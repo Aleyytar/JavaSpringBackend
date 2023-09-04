@@ -1,0 +1,41 @@
+package com.example.ReactDilrb.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.stereotype.Service;
+
+import com.example.ReactDilrb.entities.Post;
+import com.example.ReactDilrb.repos.PostRepository;
+import com.example.ReactDilrb.request.forposts.PostCreateRequesy;
+
+import lombok.AllArgsConstructor;
+
+@Service
+@AllArgsConstructor
+public class PostService {
+	
+	private PostRepository postRepository;
+
+
+	public List<Post> getAllPost(Optional<Long> userId) {
+		if(userId.isPresent())
+			return postRepository.findByUserId(userId);
+		return postRepository.findAll();
+	}
+
+
+	public Post getOnePostById(Long postId) {
+		return postRepository.findById(postId).orElse(null);
+	}
+
+
+	public PostCreateRequesy createOnePost( PostCreateRequesy newPostRequest) {
+		return postRepository.save(newPostRequest);
+	}
+	
+	
+
+	
+
+}

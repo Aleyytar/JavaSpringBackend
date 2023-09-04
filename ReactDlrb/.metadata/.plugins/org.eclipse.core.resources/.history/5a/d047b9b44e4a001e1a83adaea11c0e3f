@@ -1,0 +1,5 @@
+package com.example.ReactDilrb.request.forposts;
+
+public class PostCreateRequesy {
+
+}
